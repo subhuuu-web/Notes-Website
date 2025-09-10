@@ -2,141 +2,355 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5th Semester Syllabus</title>
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --background-color: #f5f5f5;
+      --card-bg: #fff;
+      --text-color: #333;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    .dark-mode {
+      --primary-color: #ecf0f1;
+      --secondary-color: #e74c3c;
+      --background-color: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #f5f5f5;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: var(--transition);
+      line-height: 1.6;
+      padding-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+      color: white;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode header {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .toggle-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .toggle-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    .toggle-btn:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .subject-card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 20px;
+      transition: var(--transition);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .subject-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .subject-card h2 {
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid;
+      margin-bottom: 15px;
+    }
+
+    .subject-card h3 {
+      color: var(--secondary-color);
+      margin: 15px 0 8px 0;
+      font-size: 1.1rem;
+    }
+
+    .subject-card p {
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .hours-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .toc-card h2 { border-color: #e74c3c; }
+    .dmdw-card h2 { border-color: #2980b9; }
+    .cloud-card h2 { border-color: #16a085; }
+    .java-card h2 { border-color: #8e44ad; }
+    .network-card h2 { border-color: #e74c3c; }
+    .economics-card h2 { border-color: #2980b9; }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: var(--text-color);
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .subject-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .toggle-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin:20px; background-color:#f5f5f5;">
+<body>
+  <header>
+    <div class="container">
+      <h1>5th Semester Syllabus</h1>
+      <div class="toggle-container">
+        <button class="toggle-btn" id="darkModeToggle">
+          <span id="toggleIcon">🌙</span> 
+          <span id="toggleText">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <h1 style="text-align:center; color:#2c3e50;">5th Semester Syllabus</h1>
+  <div class="container">
+    <div class="subject-grid">
+      <!-- THEORY OF COMPUTATION -->
+      <div class="subject-card toc-card">
+        <span class="hours-badge">54H</span>
+        <h2 style="color:#e74c3c;">Theory of Computation</h2>
+        <h3>Unit 1 (12 Hours)</h3>
+        <p>Introduction to Compiler Design and Lexical Analysis, Overview of Compilation and its Phases, Lexical Analysis: Role of a Lexical Analyzer, Finite Automata: NFA & DFA, Regular Expressions, Lexical Grammar, Tools: Lex & Flex.</p>
 
-  <!-- THEORY OF COMPUTATION -->
-  <div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 5px #aaa;">
-    <h2 style="color:#e74c3c;">Theory of Computation</h2>
-    <h3>Unit 1 (12 Hours)</h3>
-    <p>Introduction to Compiler Design and Lexical Analysis, Overview of Compilation and its Phases, Lexical Analysis: Role of a Lexical Analyzer, Finite Automata: NFA & DFA, Regular Expressions, Lexical Grammar, Tools: Lex & Flex.</p>
+        <h3>Unit 2 (12 Hours)</h3>
+        <p>Syntax Analysis: Role of a Parser, Context-Free Grammars, Parse Trees, Ambiguity, Top-Down Parsing (Recursive Descent, LL(1)), Bottom-Up Parsing (Shift-Reduce, SLR, LR(1), LALR), Error Handling.</p>
 
-    <h3>Unit 2 (12 Hours)</h3>
-    <p>Syntax Analysis: Role of a Parser, Context-Free Grammars, Parse Trees, Ambiguity, Top-Down Parsing (Recursive Descent, LL(1)), Bottom-Up Parsing (Shift-Reduce, SLR, LR(1), LALR), Error Handling.</p>
+        <h3>Unit 3 (10 Hours)</h3>
+        <p>Syntax-Directed Translation & Semantic Analysis, SDD, Attributes, Dependency Graphs, Attribute Grammars, Applications of Syntax-Directed Translation.</p>
 
-    <h3>Unit 3 (10 Hours)</h3>
-    <p>Syntax-Directed Translation & Semantic Analysis, SDD, Attributes, Dependency Graphs, Attribute Grammars, Applications of Syntax-Directed Translation.</p>
+        <h3>Unit 4 (10 Hours)</h3>
+        <p>Intermediate Code Generation & Symbol Table: Structures, Scope, Three Address Code, Quadruples, Triples, Syntax Trees, DAGs, Type Checking, Conversions, Control Flow, Intermediate Code for Procedures & Run-Time Environments.</p>
 
-    <h3>Unit 4 (10 Hours)</h3>
-    <p>Intermediate Code Generation & Symbol Table: Structures, Scope, Three Address Code, Quadruples, Triples, Syntax Trees, DAGs, Type Checking, Conversions, Control Flow, Intermediate Code for Procedures & Run-Time Environments.</p>
+        <h3>Unit 5</h3>
+        <p>Code Generation & Optimization: Basic Blocks, Flow Graphs, Register Allocation, Peephole Optimization, Removal of Redundant/Unreachable Code, Machine-Dependent Optimization.</p>
+      </div>
 
-    <h3>Unit 5</h3>
-    <p>Code Generation & Optimization: Basic Blocks, Flow Graphs, Register Allocation, Peephole Optimization, Removal of Redundant/Unreachable Code, Machine-Dependent Optimization.</p>
+      <!-- DATA MINING AND DATA WAREHOUSING -->
+      <div class="subject-card dmdw-card">
+        <span class="hours-badge">56H</span>
+        <h2 style="color:#2980b9;">Data Mining and Data Warehousing (DMDW)</h2>
+        
+        <h3>Unit 1 (12 Hours)</h3>
+        <p>Introduction to Data Mining, Technologies, Issues, Data Objects, Attributes, Statistical Descriptions, Data Preprocessing (Integration, Cleaning, Transformation, Reduction, Discretization).</p>
+
+        <h3>Unit 2 (12 Hours)</h3>
+        <p>Introduction to Data Warehousing, Need, Concepts, Architecture, Models, ETL, Metadata, Trends, OLAP vs OLTP, Data Cube, Schemas, Warehouse Design & Usage.</p>
+
+        <h3>Unit 3 (12 Hours)</h3>
+        <p>Mining Frequent Patterns: Associations, Correlations, Apriori, FP-Growth, Classification (Decision Tree, Bayes, Rule-based, KNN, Logistic Regression, SVM).</p>
+
+        <h3>Unit 4 (12 Hours)</h3>
+        <p>Cluster Analysis: K-means, K-medoids, Hierarchical, DBSCAN. Graph & Network Data, Anomaly Detection, Outlier Analysis, Text Mining (Preprocessing, TF-IDF, Classification, Clustering), Web Mining (Content, Structure, Usage).</p>
+
+        <h3>Unit 5 (8 Hours)</h3>
+        <p>Challenges of Outlier Detection, Supervised & Semi-supervised, Unsupervised, Statistical & Proximity-based methods, Data Mining Approaches.</p>
+      </div>
+
+      <!-- CLOUD COMPUTING -->
+      <div class="subject-card cloud-card">
+        <span class="hours-badge">56H</span>
+        <h2 style="color:#16a085;">Cloud Computing</h2>
+
+        <h3>Unit 1 (12 Hours)</h3>
+        <p>Cloud Computing: Introduction, Types of cloud: private, public, hybrid. Hardware & Infrastructure: IaaS, PaaS, SaaS. Benefits & Challenges, Virtualization (CPU, Memory, I/O Devices), Virtual Clusters, Data-center Automation.</p>
+
+        <h3>Unit 2 (14 Hours)</h3>
+        <p>Cloud Infrastructure: Architectural Design, Layered Cloud Architecture, Inter-Cloud Resource Management, Provisioning, Deployment. Cloud Applications: Web Services Deployment, SLA Management.</p>
+
+        <h3>Unit 3 (10 Hours)</h3>
+        <p>Cloud Economics: Choosing Platforms (Amazon, Microsoft, Google, etc.), CloudSim Benefits & Architecture, Scheduling Algorithms.</p>
+
+        <h3>Unit 4 (10 Hours)</h3>
+        <p>Cloud Security: Challenges, SaaS Security, Risk Management, Monitoring, Security Architecture, Data & Application Security, VM Security, Identity & Access Management.</p>
+
+        <h3>Unit 5 (10 Hours)</h3>
+        <p>Cloud Service Development & Trends: Cloud-based Applications, Platforms, Tools, Deployment, Edge Computing, Serverless, Containerization, AI in Cloud, Quantum Cloud.</p>
+      </div>
+
+      <!-- ADVANCED JAVA -->
+      <div class="subject-card java-card">
+        <span class="hours-badge">48H</span>
+        <h2 style="color:#8e44ad;">Advanced Java</h2>
+
+        <h3>Unit 1 (12 Hours)</h3>
+        <p>Basics of JDBC: Need, Drivers, Architecture, Components. Programs to connect DB, Execute Queries, ResultSet, Metadata, Callable Statements, Stored Procedures.</p>
+
+        <h3>Unit 2 (12 Hours)</h3>
+        <p>Web Architecture: HTML Basics, Tags, Layout, Forms. Servlets: Advantages, Architecture, HTTP Protocol, Types of Servlets, Life Cycle, doGet/doPost, HTML Output, DBMS Communication, Servlet Chaining, Redirect, Filters, Listeners, Session Tracking.</p>
+
+        <h3>Unit 3 (10 Hours)</h3>
+        <p>Java Server Pages: Introduction, Anatomy, Execution, JSP Engine, Objects, Directives, Elements, Beans, Actions (useBean, setProperty, getProperty).</p>
+
+        <h3>Unit 4 (14 Hours)</h3>
+        <p>Hibernate: Introduction, Architecture, O/R Mapping, Configuration, Development, HQL.</p>
+
+        <h3>Unit 5</h3>
+        <p>Spring & SpringBoot: Spring Core, IoC, MVC, Hibernate Integration, SpringBoot Basics, Dependency Injection, JPA, WebApp MVC.</p>
+      </div>
+
+      <!-- COMPUTER NETWORKS -->
+      <div class="subject-card network-card">
+        <span class="hours-badge">50H</span>
+        <h2 style="color:#e74c3c;">Computer Networks (DCCN)</h2>
+
+        <h3>Unit 1 (10 Hours)</h3>
+        <p>Introduction to Computer Networks, Components, Devices, Topology, OSI model, layers in OSI model, TCP/IP Model, Address types (Physical, Logical, Port, Application-Specific Addresses), Analog and Digital Signal. Transmission Impairment (Attenuation, Distortion, Noise), Data Rate Limits (Nyquist Bit rate, Shannon Capacity). Performance (Bandwidth, Throughput, Latency, Jitter). Transmission Media (Guided Media, Unguided Media).</p>
+
+        <h3>Unit 2 (10 Hours)</h3>
+        <p>Physical Layer: Line encoding, Block coding, Binary data to Digital Signal Conversion, Digital to Analog Signal Conversion, Analog to Analog Signal Conversion, Analogue to Digital Signal conversion. Digital Transmission types (Serial and Parallel), Transmission Modes (Simplex, Half-Duplex and Full-Duplex), Multiplexing (FDM, TDM, WDM, CDM). Switching and Types: Circuit Switched Networks, Datagram Networks, Virtual Circuit Networks.</p>
+
+        <h3>Unit 3 (10 Hours)</h3>
+        <p>Data link layer: Introduction, Error Detection and Correction techniques (Checksum, Cyclic Redundancy Check, Hamming Code (1-bit error rectification)), Framing, HDLC Frame Structure and Types, HDLC (NRM, ABM, ARM), Point to Point Protocol, Flow and Error Control, Noiseless Channels protocols (Simplest, Stop–and-Wait), Noisy Channels protocols (Stop-and-Wait ARQ, Go-Back-N ARQ, Selective Repeat ARQ).</p>
+
+        <h3>Unit 4 (10 Hours)</h3>
+        <p>Medium Access sub layer: Multiple Access - Random Access Protocols (ALOHA, CSMA (non-persistent, 1-persistent, p-persistent), CSMA/CD, CSMA/CA), Controlled Access Protocols (Reservation, Polling, Token Passing), Channelization techniques (FDMA, TDMA, CDMA). Network Layer: Inter-networking, IP Address, IPv4 (Header structure, Class types, Sub-netting), IPv6 (Header structure, Address structure), IPV4 to IPV6 Address Mapping, Address Resolution Protocol, ICMP.</p>
+
+        <h3>Unit 5 (10 Hours)</h3>
+        <p>Transport Layer: User Datagram Protocol, Transmission Control Protocol, Process-To-Process Delivery, Congestion Control and its Type, Quality of Service. Application Layer: Domain Name System - Address Resolution, TELNET, E-MAIL (SMTP, POP3), FTP, HTTP.</p>
+      </div>
+
+      <!-- ENGINEERING ECONOMICS AND COSTING -->
+      <div class="subject-card economics-card">
+        <span class="hours-badge">36H</span>
+        <h2 style="color:#2980b9;">Engineering Economics and Costing</h2>
+
+        <h3>Unit 1 (10 Hours)</h3>
+        <p>Fundamentals of Microeconomics for Engineering Applications: Meaning, Nature, Scope of Engineering Economics, Law of Demand and its exceptions, Determinants of demand, Elasticity of demand & its measurement (Simple numerical problems to be solved), Law of supply and its exception, Determination of market equilibrium (Simple numerical problems to be solved). Law of variable proportion, Law of returns to scale.</p>
+
+        <h3>Unit 2 (6 Hours)</h3>
+        <p>Market Structures and Cost Analysis: Cost and revenue function, Price and output Determination under perfect competition (Simple numerical problems to be solved), Break Even Analysis - Linear approach (Simple numerical problems to be solved).</p>
+
+        <h3>Unit 3 (8 Hours)</h3>
+        <p>Time Value of Money and Investment Analysis: Time value of money – Application of interest formulas, Cash flow diagrams, Present worth method, Future worth method, Annual worth method, Internal rate of return method.</p>
+
+        <h3>Unit 4 (6 Hours)</h3>
+        <p>Project Evaluation and Depreciation: Cost benefit analysis for public projects, Depreciation - Depreciation of capital assets, causes of depreciation, Methods of calculating depreciation (Straight line method, Declining balance method).</p>
+
+        <h3>Unit 5 (6 Hours)</h3>
+        <p>Overview of Banking, Inflation, and National Income: Functions of commercial bank, Functions of Central Bank. Inflation - Meaning of inflation, types, causes, measures to control inflation. National Income - Concepts of national income & Method of measuring national income.</p>
+      </div>
+    </div>
   </div>
 
-  <!-- DATA MINING AND DATA WAREHOUSING -->
-  <div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 5px #aaa;">
-    <h2 style="color:#2980b9;">Data Mining and Data Warehousing (DMDW)</h2>
+  <footer>
+    <div class="container">
+      <p>5th Semester Syllabus - Enhanced with Dark Mode Toggle</p>
+    </div>
+  </footer>
+
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleText = document.getElementById('toggleText');
     
-    <h3>Unit 1 (12 Hours)</h3>
-    <p>Introduction to Data Mining, Technologies, Issues, Data Objects, Attributes, Statistical Descriptions, Data Preprocessing (Integration, Cleaning, Transformation, Reduction, Discretization).</p>
-
-    <h3>Unit 2 (12 Hours)</h3>
-    <p>Introduction to Data Warehousing, Need, Concepts, Architecture, Models, ETL, Metadata, Trends, OLAP vs OLTP, Data Cube, Schemas, Warehouse Design & Usage.</p>
-
-    <h3>Unit 3 (12 Hours)</h3>
-    <p>Mining Frequent Patterns: Associations, Correlations, Apriori, FP-Growth, Classification (Decision Tree, Bayes, Rule-based, KNN, Logistic Regression, SVM).</p>
-
-    <h3>Unit 4 (12 Hours)</h3>
-    <p>Cluster Analysis: K-means, K-medoids, Hierarchical, DBSCAN. Graph & Network Data, Anomaly Detection, Outlier Analysis, Text Mining (Preprocessing, TF-IDF, Classification, Clustering), Web Mining (Content, Structure, Usage).</p>
-
-    <h3>Unit 5 (8 Hours)</h3>
-    <p>Challenges of Outlier Detection, Supervised & Semi-supervised, Unsupervised, Statistical & Proximity-based methods, Data Mining Approaches.</p>
-  </div>
-
-  <!-- CLOUD COMPUTING -->
-  <div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 5px #aaa;">
-    <h2 style="color:#16a085;">Cloud Computing</h2>
-
-    <h3>Unit 1 (12 Hours)</h3>
-    <p>Cloud Computing: Introduction, Types of cloud: private, public, hybrid. Hardware & Infrastructure: IaaS, PaaS, SaaS. Benefits & Challenges, Virtualization (CPU, Memory, I/O Devices), Virtual Clusters, Data-center Automation.</p>
-
-    <h3>Unit 2 (14 Hours)</h3>
-    <p>Cloud Infrastructure: Architectural Design, Layered Cloud Architecture, Inter-Cloud Resource Management, Provisioning, Deployment. Cloud Applications: Web Services Deployment, SLA Management.</p>
-
-    <h3>Unit 3 (10 Hours)</h3>
-    <p>Cloud Economics: Choosing Platforms (Amazon, Microsoft, Google, etc.), CloudSim Benefits & Architecture, Scheduling Algorithms.</p>
-
-    <h3>Unit 4 (10 Hours)</h3>
-    <p>Cloud Security: Challenges, SaaS Security, Risk Management, Monitoring, Security Architecture, Data & Application Security, VM Security, Identity & Access Management.</p>
-
-    <h3>Unit 5 (10 Hours)</h3>
-    <p>Cloud Service Development & Trends: Cloud-based Applications, Platforms, Tools, Deployment, Edge Computing, Serverless, Containerization, AI in Cloud, Quantum Cloud.</p>
-  </div>
-
-  <!-- ADVANCED JAVA -->
-  <div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 5px #aaa;">
-    <h2 style="color:#8e44ad;">Advanced Java</h2>
-
-    <h3>Unit 1 (12 Hours)</h3>
-    <p>Basics of JDBC: Need, Drivers, Architecture, Components. Programs to connect DB, Execute Queries, ResultSet, Metadata, Callable Statements, Stored Procedures.</p>
-
-    <h3>Unit 2 (12 Hours)</h3>
-    <p>Web Architecture: HTML Basics, Tags, Layout, Forms. Servlets: Advantages, Architecture, HTTP Protocol, Types of Servlets, Life Cycle, doGet/doPost, HTML Output, DBMS Communication, Servlet Chaining, Redirect, Filters, Listeners, Session Tracking.</p>
-
-    <h3>Unit 3 (10 Hours)</h3>
-    <p>Java Server Pages: Introduction, Anatomy, Execution, JSP Engine, Objects, Directives, Elements, Beans, Actions (useBean, setProperty, getProperty).</p>
-
-    <h3>Unit 4 (14 Hours)</h3>
-    <p>Hibernate: Introduction, Architecture, O/R Mapping, Configuration, Development, HQL.</p>
-
-    <h3>Unit 5</h3>
-    <p>Spring & SpringBoot: Spring Core, IoC, MVC, Hibernate Integration, SpringBoot Basics, Dependency Injection, JPA, WebApp MVC.</p>
-  </div>
-
-  <!-- COMPUTER NETWORKS -->
-<div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 5px #aaa;">
-<h2 style="color:#e74c3c;">Computer Networks (DCCN)</h2>
-
-
-<h3>Unit 1 (10 Hours)</h3>
-<p>Introduction to Computer Networks, Components, Devices, Topology, OSI model, layers in OSI model, TCP/IP Model, Address types (Physical, Logical, Port, Application-Specific Addresses), Analog and Digital Signal. Transmission Impairment (Attenuation, Distortion, Noise), Data Rate Limits (Nyquist Bit rate, Shannon Capacity). Performance (Bandwidth, Throughput, Latency, Jitter). Transmission Media (Guided Media, Unguided Media).</p>
-
-
-<h3>Unit 2 (10 Hours)</h3>
-<p>Physical Layer: Line encoding, Block coding, Binary data to Digital Signal Conversion, Digital to Analog Signal Conversion, Analog to Analog Signal Conversion, Analogue to Digital Signal conversion. Digital Transmission types (Serial and Parallel), Transmission Modes (Simplex, Half-Duplex and Full-Duplex), Multiplexing (FDM, TDM, WDM, CDM). Switching and Types: Circuit Switched Networks, Datagram Networks, Virtual Circuit Networks.</p>
-
-
-<h3>Unit 3 (10 Hours)</h3>
-<p>Data link layer: Introduction, Error Detection and Correction techniques (Checksum, Cyclic Redundancy Check, Hamming Code (1-bit error rectification)), Framing, HDLC Frame Structure and Types, HDLC (NRM, ABM, ARM), Point to Point Protocol, Flow and Error Control, Noiseless Channels protocols (Simplest, Stop–and-Wait), Noisy Channels protocols (Stop-and-Wait ARQ, Go-Back-N ARQ, Selective Repeat ARQ).</p>
-
-
-<h3>Unit 4 (10 Hours)</h3>
-<p>Medium Access sub layer: Multiple Access - Random Access Protocols (ALOHA, CSMA (non-persistent, 1-persistent, p-persistent), CSMA/CD, CSMA/CA), Controlled Access Protocols (Reservation, Polling, Token Passing), Channelization techniques (FDMA, TDMA, CDMA). Network Layer: Inter-networking, IP Address, IPv4 (Header structure, Class types, Sub-netting), IPv6 (Header structure, Address structure), IPV4 to IPV6 Address Mapping, Address Resolution Protocol, ICMP.</p>
-
-
-<h3>Unit 5 (10 Hours)</h3>
-<p>Transport Layer: User Datagram Protocol, Transmission Control Protocol, Process-To-Process Delivery, Congestion Control and its Type, Quality of Service. Application Layer: Domain Name System - Address Resolution, TELNET, E-MAIL (SMTP, POP3), FTP, HTTP.</p>
-</div>
-
-
-<!-- ENGINEERING ECONOMICS AND COSTING -->
-<div style="background:#fff; padding:15px; margin-bottom:20px; border-radius:8px; box-shadow:0 0 5px #aaa;">
-<h2 style="color:#2980b9;">Engineering Economics and Costing</h2>
-
-
-<h3>Unit 1 (10 Hours)</h3>
-<p>Fundamentals of Microeconomics for Engineering Applications: Meaning, Nature, Scope of Engineering Economics, Law of Demand and its exceptions, Determinants of demand, Elasticity of demand & its measurement (Simple numerical problems to be solved), Law of supply and its exception, Determination of market equilibrium (Simple numerical problems to be solved). Law of variable proportion, Law of returns to scale.</p>
-
-
-<h3>Unit 2 (6 Hours)</h3>
-<p>Market Structures and Cost Analysis: Cost and revenue function, Price and output Determination under perfect competition (Simple numerical problems to be solved), Break Even Analysis - Linear approach (Simple numerical problems to be solved).</p>
-
-
-<h3>Unit 3 (8 Hours)</h3>
-<p>Time Value of Money and Investment Analysis: Time value of money – Application of interest formulas, Cash flow diagrams, Present worth method, Future worth method, Annual worth method, Internal rate of return method.</p>
-
-
-<h3>Unit 4 (6 Hours)</h3>
-<p>Project Evaluation and Depreciation: Cost benefit analysis for public projects, Depreciation - Depreciation of capital assets, causes of depreciation, Methods of calculating depreciation (Straight line method, Declining balance method).</p>
-
-
-<h3>Unit 5 (6 Hours)</h3>
-<p>Overview of Banking, Inflation, and National Income: Functions of commercial bank, Functions of Central Bank. Inflation - Meaning of inflation, types, causes, measures to control inflation. National Income - Concepts of national income & Method of measuring national income.</p>
-</div>
-
+    // Check for saved theme preference or respect OS preference
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = localStorage.getItem('theme');
+    
+    if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+      document.body.classList.add('dark-mode');
+      toggleIcon.textContent = '☀️';
+      toggleText.textContent = 'Light Mode';
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        toggleIcon.textContent = '☀️';
+        toggleText.textContent = 'Light Mode';
+      } else {
+        localStorage.setItem('theme', 'light');
+        toggleIcon.textContent = '🌙';
+        toggleText.textContent = 'Dark Mode';
+      }
+    });
+  </script>
 </body>
 </html>
